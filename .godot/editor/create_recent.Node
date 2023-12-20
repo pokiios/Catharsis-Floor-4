@@ -1,3 +1,9 @@
+RichTextLabel
+VBoxContainer
+Button
+ColorRect
+Control
+Node
 WorldEnvironment
 DirectionalLight3D
 Camera3D
