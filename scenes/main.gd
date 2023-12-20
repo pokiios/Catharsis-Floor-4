@@ -121,6 +121,10 @@ func _displayPath():
 			tile = tileCorner.instantiate()
 			tileRotation = Vector3(0,270,0)
 		
+		elif tileScore == 15:
+			tile = tileCrossroads.instantiate()
+			tileRotation = Vector3(0,0,0)
+		
 		add_child(tile)
 		tile.global_position = Vector3(_pathGen.getPathTile(i).x, 0, _pathGen.getPathTile(i).y)
 		tile.global_rotation_degrees = tileRotation

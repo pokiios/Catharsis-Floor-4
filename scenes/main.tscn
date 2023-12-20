@@ -1,15 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://biwgl2si78pwk"]
+[gd_scene load_steps=12 format=3 uid="uid://biwgl2si78pwk"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dwn2i"]
+[ext_resource type="PackedScene" uid="uid://bhkodbj82tjc1" path="res://assets/tile.glb" id="2_af2on"]
 [ext_resource type="PackedScene" uid="uid://binw550m2bxuc" path="res://assets/tile_straight.glb" id="2_rdg58"]
 [ext_resource type="PackedScene" uid="uid://dd63wp2kvv380" path="res://assets/tile_endSpawn.glb" id="3_3rnyc"]
 [ext_resource type="PackedScene" uid="uid://cxoj0vcrev7j7" path="res://assets/tile_cornerSquare.glb" id="3_nda54"]
 [ext_resource type="PackedScene" uid="uid://bjt0d0y02xxcp" path="res://assets/tile_crossing.glb" id="5_jh2gq"]
 [ext_resource type="PackedScene" uid="uid://x8wmkt3ykosa" path="res://assets/enemy_ufoGreen.glb" id="6_8b4ot"]
 [ext_resource type="PackedScene" uid="uid://beft3brg0fwxa" path="res://assets/tile_tree.glb" id="6_54vwh"]
-[ext_resource type="PackedScene" uid="uid://dbfnv3hjpmnu" path="res://assets/tile_treeDouble.glb" id="7_thmnd"]
-[ext_resource type="PackedScene" uid="uid://ch8kmn3p4l2qw" path="res://assets/tile_treeQuad.glb" id="8_y7rds"]
-[ext_resource type="PackedScene" uid="uid://dx2q4duharest" path="res://assets/tile_crystal.glb" id="9_7wb07"]
 [ext_resource type="PackedScene" uid="uid://bakcm2qe4buxh" path="res://assets/tile_rock.glb" id="10_5lw0b"]
 
 [sub_resource type="Environment" id="Environment_gxbuh"]
@@ -22,6 +20,8 @@ glow_normalized = true
 glow_intensity = 1.13
 glow_strength = 1.5
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_l6xyn"]
+
 [node name="main" type="Node3D"]
 script = ExtResource("1_dwn2i")
 tileStart = ExtResource("3_3rnyc")
@@ -30,7 +30,7 @@ tileStraight = ExtResource("2_rdg58")
 tileCorner = ExtResource("3_nda54")
 tileCrossroads = ExtResource("5_jh2gq")
 tileEnemy = ExtResource("6_8b4ot")
-tileEmpty = Array[PackedScene]([ExtResource("6_54vwh"), ExtResource("7_thmnd"), ExtResource("8_y7rds"), ExtResource("9_7wb07"), ExtResource("10_5lw0b")])
+tileEmpty = Array[PackedScene]([ExtResource("10_5lw0b"), ExtResource("6_54vwh"), ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("2_af2on")])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 8, 8, 10)
@@ -41,3 +41,4 @@ transform = Transform3D(1, 0, 0, 0, 0.846119, 0.532994, 0, -0.532994, 0.846119, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gxbuh")
+camera_attributes = SubResource("CameraAttributesPractical_l6xyn")

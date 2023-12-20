@@ -58,7 +58,7 @@ func getPath() -> Array[Vector2i]:
 	return _path
 	
 func _addLoops():
-	var loopsGenerated:bool = false
+	var loopsGenerated:bool = true
 	
 	while loopsGenerated:
 		loopsGenerated = false
@@ -75,7 +75,12 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 	var returnPath:Array[Vector2i]
 	
 	#Yellow
-	if x < _gridLength-1 && y > 1 && _tileLocFree(x, y-3) && _tileLocFree(x+1, y-3) && _tileLocFree(x+2, y-3) && _tileLocFree(x-1, y-2) && _tileLocFree(x, y-2) && _tileLocFree(x+1, y-2) && _tileLocFree(x+2, y-2) && _tileLocFree(x+3, y-2) && _tileLocFree(x-1, y-1) && _tileLocFree(x, y-1) && _tileLocFree(x+1, y-1) && _tileLocFree(x+2, y-1) && _tileLocFree(x+3, y-1) && _tileLocFree(x+1,y) && _tileLocFree(x+2,y) && _tileLocFree(x+3,y) && _tileLocFree(x+1,y+1) && _tileLocFree(x+2,y+1):
+	if (x < _gridLength-1 and y > 1
+		and _tileLocFree(x, y-3) and _tileLocFree(x+1, y-3) and _tileLocFree(x+2, y-3)		
+		and _tileLocFree(x-1, y-2) and _tileLocFree(x, y-2) and _tileLocFree(x+1, y-2) and _tileLocFree(x+2, y-2) and _tileLocFree(x+3, y-2)
+		and _tileLocFree(x-1, y-1) and _tileLocFree(x, y-1) and _tileLocFree(x+1, y-1) and _tileLocFree(x+2, y-1) and _tileLocFree(x+3, y-1)
+		and _tileLocFree(x+1,y) and _tileLocFree(x+2,y) and _tileLocFree(x+3,y)
+		and _tileLocFree(x+1,y+1) and _tileLocFree(x+2,y+1)):
 		returnPath = [Vector2i(x+1,y), Vector2i(x+2,y), Vector2i(x+2,y-1), Vector2i(x+2,y-2), Vector2i(x+1,y-2), Vector2i(x,y-2), Vector2i(x,y-1)]
 
 		if _path[index-1].y > y:
@@ -84,7 +89,12 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
 	#Blue
-	elif x > 2 && y > 1 && _tileLocFree(x, y-3) && _tileLocFree(x-1, y-3) && _tileLocFree(x-2, y-3) && _tileLocFree(x-1, y) && _tileLocFree(x-2, y) && _tileLocFree(x-3, y) && _tileLocFree(x+1, y-1) && _tileLocFree(x, y-1) && _tileLocFree(x-2, y-1) && _tileLocFree(x-3, y-1) && _tileLocFree(x+1, y-2) && _tileLocFree(x, y-2) && _tileLocFree(x-1, y-2) && _tileLocFree(x-2, y-2) && _tileLocFree(x-3, y-2) && _tileLocFree(x-1, y+1) && _tileLocFree(x-2, y+1):
+	elif (x > 2 and y > 1
+			and _tileLocFree(x, y-3) and _tileLocFree(x-1, y-3) and _tileLocFree(x-2, y-3)		
+			and _tileLocFree(x-1, y) and _tileLocFree(x-2, y) and _tileLocFree(x-3, y)
+			and _tileLocFree(x+1, y-1) and _tileLocFree(x, y-1) and _tileLocFree(x-2, y-1) and _tileLocFree(x-3, y-1)
+			and _tileLocFree(x+1, y-2) and _tileLocFree(x, y-2) and _tileLocFree(x-1, y-2) and _tileLocFree(x-2, y-2) and _tileLocFree(x-3, y-2)
+			and _tileLocFree(x-1, y+1) and _tileLocFree(x-2, y+1)):
 		returnPath = [Vector2i(x,y-1), Vector2i(x,y-2), Vector2i(x-1,y-2), Vector2i(x-2,y-2), Vector2i(x-2,y-1), Vector2i(x-2,y), Vector2i(x-1,y)]
 
 		if _path[index-1].x > x:
@@ -93,7 +103,12 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
 	#Red
-	elif x < _gridLength-1 && y < _gridHeight-2 && _tileLocFree(x, y+3) && _tileLocFree(x+1, y+3) && _tileLocFree(x+2, y+3) && _tileLocFree(x+1, y-1) && _tileLocFree(x+2, y-1) && _tileLocFree(x+1, y) && _tileLocFree(x+2, y) && _tileLocFree(x+3, y) && _tileLocFree(x-1, y+1) && _tileLocFree(x, y+1) && _tileLocFree(x+2, y+1) && _tileLocFree(x+3, y+1) && _tileLocFree(x-1, y+2) && _tileLocFree(x, y+2) && _tileLocFree(x+1, y+2) && _tileLocFree(x+2, y+2) && _tileLocFree(x+3, y+2):
+	elif (x < _gridLength-1 and y < _gridHeight-2
+			and _tileLocFree(x, y+3) and _tileLocFree(x+1, y+3) and _tileLocFree(x+2, y+3)		
+			and _tileLocFree(x+1, y-1) and _tileLocFree(x+2, y-1)
+			and _tileLocFree(x+1, y) and _tileLocFree(x+2, y) and _tileLocFree(x+3, y)
+			and _tileLocFree(x-1, y+1) and _tileLocFree(x, y+1) and _tileLocFree(x+2, y+1) and _tileLocFree(x+3, y+1)
+			and _tileLocFree(x-1, y+2) and _tileLocFree(x, y+2) and _tileLocFree(x+1, y+2) and _tileLocFree(x+2, y+2) and _tileLocFree(x+3, y+2)):
 		returnPath = [Vector2i(x+1,y), Vector2i(x+2,y), Vector2i(x+2,y+1), Vector2i(x+2,y+2), Vector2i(x+1,y+2), Vector2i(x,y+2), Vector2i(x,y+1)]
 
 		if _path[index-1].y < y:
@@ -102,7 +117,12 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
 	# Brown
-	elif x > 2 && y < _gridHeight-2 && _tileLocFree(x, y+3) && _tileLocFree(x-1, y+3) && _tileLocFree(x-2, y+3) && _tileLocFree(x-1, y-1) && _tileLocFree(x-2, y-1) && _tileLocFree(x-1, y) && _tileLocFree(x-2, y) && _tileLocFree(x-3, y) && _tileLocFree(x+1, y+1) && _tileLocFree(x, y+1) && _tileLocFree(x-2, y+1) && _tileLocFree(x-3, y+1)&& _tileLocFree(x+1, y+2) && _tileLocFree(x, y+2) && _tileLocFree(x-1, y+2) && _tileLocFree(x-2, y+2) && _tileLocFree(x-3, y+2):
+	elif (x > 2 and y < _gridHeight-2
+			and _tileLocFree(x, y+3) and _tileLocFree(x-1, y+3) and _tileLocFree(x-2, y+3)
+			and _tileLocFree(x-1, y-1) and _tileLocFree(x-2, y-1)
+			and _tileLocFree(x-1, y) and _tileLocFree(x-2, y) and _tileLocFree(x-3, y)
+			and _tileLocFree(x+1, y+1) and _tileLocFree(x, y+1) and _tileLocFree(x-2, y+1) and _tileLocFree(x-3, y+1)
+			and _tileLocFree(x+1, y+2) and _tileLocFree(x, y+2) and _tileLocFree(x-1, y+2) and _tileLocFree(x-2, y+2) and _tileLocFree(x-3, y+2)):
 		returnPath = [Vector2i(x,y+1), Vector2i(x,y+2), Vector2i(x-1,y+2), Vector2i(x-2,y+2), Vector2i(x-2,y+1), Vector2i(x-2,y), Vector2i(x-1,y)]
 
 		if _path[index-1].x > x:
