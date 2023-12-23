@@ -9,21 +9,10 @@ extends Node3D
 @export var tileEnemy:PackedScene
 @export var tileEmpty:Array[PackedScene]
 
-@export var mapLength:int = 16
-@export var mapHeight:int = 10
-
-@export var minPathSize:int = 50
-@export var maxPathSize:int = 70
-
-@export var minLoops = 1
-@export var maxLoops = 4
-
-var _pathGen:PathGenerator
+#var PathGenInstance:PathGenerator
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_pathGen = PathGenerator.new(mapLength, mapHeight)
-	_displayPath()
 	_completeGrid()
 	
 	await get_tree().create_timer(2).timeout
@@ -37,7 +26,7 @@ func _popAlongGrid():
 	var enemy = tileEnemy.instantiate()
 	var c3d:Curve3D = Curve3D.new()
 	
-	for element in _pathGen.getPath():
+	for element in PathGenInstance.getPathRoute():
 		c3d.add_point(Vector3(element.x, 0.4, element.y))
 	
 	var p3d:Path3D = Path3D.new()
@@ -56,27 +45,17 @@ func _popAlongGrid():
 		await get_tree().create_timer(0.01).timeout
 
 func _completeGrid():
-	for x in range(mapLength):
-		for y in range(mapHeight):
-			if !_pathGen.getPath().has(Vector2i(x,y)):
+	
+	for x in range(PathGenInstance.pathConfig.mapLength):
+		for y in range(PathGenInstance.pathConfig.mapHeight):
+			if !PathGenInstance.getPathRoute().has(Vector2i(x,y)):
 				var tile:Node3D = tileEmpty.pick_random().instantiate()
 				add_child(tile)
 				tile.global_position = Vector3(x,0,y)
 				tile.global_rotation_degrees = Vector3(0, randi_range(0,3)*90, 0)
-
-func _displayPath():
-	var iterationCount:int = 1
-	_pathGen.generatePath(true)
 	
-	while _pathGen.getPath().size() < minPathSize || _pathGen.getPath().size() > maxPathSize || _pathGen.getLoopCount() < minLoops || _pathGen.getLoopCount() > maxLoops:
-		iterationCount += 1
-		_pathGen.generatePath(true)
-		
-	print("Generated a path of %d tiles after %d iterations" % [_pathGen.getPath().size(), iterationCount])
-	print(_pathGen.getPath())
-	
-	for i in range(_pathGen.getPath().size()):
-		var tileScore:int = _pathGen.getTileScore(i)
+	for i in range(PathGenInstance.getPathRoute().size()):
+		var tileScore:int = PathGenInstance.getTileScore(i)
 		
 		var tile:Node3D = tileEmpty[0].instantiate()
 		var tileRotation:Vector3 = Vector3.ZERO
@@ -126,6 +105,6 @@ func _displayPath():
 			tileRotation = Vector3(0,0,0)
 		
 		add_child(tile)
-		tile.global_position = Vector3(_pathGen.getPathTile(i).x, 0, _pathGen.getPathTile(i).y)
+		tile.global_position = Vector3(PathGenInstance.getPathTile(i).x, 0, PathGenInstance.getPathTile(i).y)
 		tile.global_rotation_degrees = tileRotation
 	

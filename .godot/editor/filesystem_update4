@@ -1,6 +1,6 @@
-res://scripts/PathGenerator.gd
 res://scenes/main.tscn
-res://scenes/main.gd
 res://scenes/main_menu.tscn
 res://scripts/main.gd
-res://scripts/MainMenuButton.gd
+res://scripts/PathGenerator.gd
+res://scripts/pathGeneratorConfig.gd
+res://resources/basic_path_config.res
