@@ -18,12 +18,9 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	_popAlongGrid()
 
-func _addCurvePoint(c3d:Curve3D, v3:Vector3) -> bool:
-	c3d.add_point(v3)
-	return true
-
 func _popAlongGrid():
 	var enemy = tileEnemy.instantiate()
+	
 	var c3d:Curve3D = Curve3D.new()
 	
 	for element in PathGenInstance.getPathRoute():

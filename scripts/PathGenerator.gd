@@ -9,7 +9,6 @@ var pathConfig:PathGeneratorConfig = preload("res://resources/basic_path_config.
 
 var _pathRoute:Array[Vector2i]
 
-# private functions
 func _init():
 	generatePath(pathConfig.addLoops)
 	
@@ -17,7 +16,6 @@ func _init():
 	or _loopCount < pathConfig.minLoops or _loopCount > pathConfig.maxLoops):
 		generatePath(pathConfig.addLoops)
 
-# public functions
 func generatePath(addLoops:bool = false):
 	_pathRoute.clear()
 	randomize()
@@ -34,7 +32,7 @@ func generatePath(addLoops:bool = false):
 		
 		if choice == 0 || x < 2 || x % 2 == 0 || x == pathConfig.mapLength - 1:
 			x += 1
-		elif choice == 1 && y < pathConfig.mapHeight-2 && !_pathRoute.has(Vector2i(x,y+1)):
+		elif choice == 1 && y < pathConfig.mapHeight - 2 && !_pathRoute.has(Vector2i(x,y+1)):
 			y += 1
 		elif choice == 2 && y > 1 && !_pathRoute.has(Vector2i(x,y-1)):
 			y -= 1
