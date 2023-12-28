@@ -8,6 +8,7 @@ extends Node3D
 @export var tileCrossroads:PackedScene
 @export var tileEnemy:PackedScene
 @export var tileEmpty:Array[PackedScene]
+
 @export var basicEnemy:PackedScene
 
 #var PathGenInstance:PathGenerator

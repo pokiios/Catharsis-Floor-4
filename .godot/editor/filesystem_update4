@@ -6,3 +6,5 @@ res://scripts/PathGenerator.gd
 res://scripts/main.gd
 res://scripts/basicEnemy.gd
 res://scenes/basic_enemy.tscn
+res://resources/basic_enemy_settings.res
+res://scripts/enemySettings.gd

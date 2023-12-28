@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx1p8wbve8jt8"]
+[gd_scene load_steps=10 format=3 uid="uid://dx1p8wbve8jt8"]
 
 [ext_resource type="Script" path="res://scripts/basicEnemy.gd" id="1_npdr0"]
 [ext_resource type="PackedScene" uid="uid://cnee1osoppwyp" path="res://assets/enemy_ufoRed.glb" id="2_tkc5l"]
@@ -22,8 +22,24 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_1jy0i"]
+resource_name = "despawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D/enemy_ufoRed:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-3.36358, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q5k3h"]
 _data = {
+"despawn": SubResource("Animation_1jy0i"),
 "spawn": SubResource("Animation_672dr")
 }
 
@@ -48,10 +64,36 @@ event = &"toTravelling"
 [node name="Travelling" type="Node" parent="EnemyStateChart/CompoundState"]
 script = ExtResource("5_tpkrk")
 
+[node name="toDamaging" type="Node" parent="EnemyStateChart/CompoundState/Travelling"]
+script = ExtResource("5_pmrwx")
+to = NodePath("../../Damaging")
+event = &"toDamaging"
+
+[node name="toDying" type="Node" parent="EnemyStateChart/CompoundState/Travelling"]
+script = ExtResource("5_pmrwx")
+to = NodePath("../../Dying")
+event = &"toDying"
+
 [node name="Despawning" type="Node" parent="EnemyStateChart/CompoundState"]
 script = ExtResource("5_tpkrk")
 
 [node name="Dying" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_tpkrk")
+
+[node name="toRemoveEnemy" type="Node" parent="EnemyStateChart/CompoundState/Dying"]
+script = ExtResource("5_pmrwx")
+to = NodePath("../../RemoveEnemy")
+event = &"toRemoveEnemy"
+
+[node name="Damaging" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("5_tpkrk")
+
+[node name="toDespawning" type="Node" parent="EnemyStateChart/CompoundState/Damaging"]
+script = ExtResource("5_pmrwx")
+to = NodePath("../../Despawning")
+event = &"toDespawning"
+
+[node name="RemoveEnemy" type="Node" parent="EnemyStateChart/CompoundState"]
 script = ExtResource("5_tpkrk")
 
 [node name="Path3D" type="Path3D" parent="."]
@@ -69,4 +111,9 @@ libraries = {
 }
 
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/Spawning" to="." method="_onSpawningStateEntered"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Travelling" to="." method="_onTravellingStateEntered"]
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Travelling" to="." method="_onTravellingStateProcessing"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Despawning" to="." method="_onDespawningStateEntered"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Dying" to="." method="_onDyingStateEntered"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Damaging" to="." method="_onDamagingStateEntered"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/RemoveEnemy" to="." method="_onRemoveEnemyStateEntered"]
