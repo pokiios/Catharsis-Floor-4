@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biwgl2si78pwk"]
+[gd_scene load_steps=16 format=3 uid="uid://biwgl2si78pwk"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_khx54"]
 [ext_resource type="PackedScene" uid="uid://c8ahcvqed6ch1" path="res://assets/tile_endRound.glb" id="2_4vhbj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dbfnv3hjpmnu" path="res://assets/tile_treeDouble.glb" id="7_thmnd"]
 [ext_resource type="PackedScene" uid="uid://dx2q4duharest" path="res://assets/tile_crystal.glb" id="9_7wb07"]
 [ext_resource type="PackedScene" uid="uid://bakcm2qe4buxh" path="res://assets/tile_rock.glb" id="10_5lw0b"]
+[ext_resource type="PackedScene" uid="uid://dx1p8wbve8jt8" path="res://scenes/basic_enemy.tscn" id="13_8ejjy"]
 
 [sub_resource type="Environment" id="Environment_gxbuh"]
 background_mode = 1
@@ -34,6 +35,7 @@ tileCorner = ExtResource("5_rd0i6")
 tileCrossroads = ExtResource("5_jh2gq")
 tileEnemy = ExtResource("6_8b4ot")
 tileEmpty = Array[PackedScene]([ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("6_54vwh"), ExtResource("9_7wb07"), ExtResource("7_thmnd"), ExtResource("10_5lw0b"), ExtResource("2_af2on"), ExtResource("2_af2on")])
+basicEnemy = ExtResource("13_8ejjy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 8, 8, 10)

@@ -1,3 +1,6 @@
+AnimationPlayer
+PathFollow3D
+Path3D
 StateChart
 RichTextLabel
 VBoxContainer

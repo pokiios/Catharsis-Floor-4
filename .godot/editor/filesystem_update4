@@ -4,3 +4,5 @@ res://resources/basic_path_config.res
 res://scripts/pathGeneratorConfig.gd
 res://scripts/PathGenerator.gd
 res://scripts/main.gd
+res://scripts/basicEnemy.gd
+res://scenes/basic_enemy.tscn
