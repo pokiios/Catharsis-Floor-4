@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 PathGenInstance="*res://scripts/PathGenerator.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
