@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1703310809
+::res://::1703741017
 icon.svg::CompressedTexture2D::8731552531787457168::1703042284::1703042297::1::::<><>::
 ::res://assets/::1703042708
 detail_crystal.glb::PackedScene::8516854528158944525::1703042609::1703042698::1::::<><>::
@@ -148,11 +148,13 @@ weapon_cannon.glb::PackedScene::3466165332565721036::1703042609::1703042686::1::
 weapon_catapult.glb::PackedScene::1976249206177389638::1703042609::1703042686::1::::<><>::
 woodStructure.glb::PackedScene::4522507356585386110::1703042609::1703042687::1::::<><>::
 woodStructure_high.glb::PackedScene::7886361764504969022::1703042609::1703042687::1::::<><>::
-::res://scenes/::1703311007
-main.tscn::PackedScene::2993733135420722490::1703311007::0::1::::<><>::res://scripts/main.gd<>uid://bhkodbj82tjc1<>uid://binw550m2bxuc<>uid://dd63wp2kvv380<>uid://k1iookdmrlqp<>uid://cxoj0vcrev7j7<>uid://bjt0d0y02xxcp<>uid://x8wmkt3ykosa<>uid://beft3brg0fwxa<>uid://dbfnv3hjpmnu<>uid://dx2q4duharest<>uid://bakcm2qe4buxh
-main_menu.tscn::PackedScene::1181274983752752893::1703311007::0::1::::<><>::res://scripts/MainMenuButton.gd<>uid://biwgl2si78pwk
-::res://scripts/::1703311007
-main.gd::GDScript::-1::1703311007::0::1::::<>Node3D<>::
+::res://resources/::1703313677
+basic_path_config.res::Resource/PathGeneratorConfig::160173686113008971::1703313677::0::1::::<><>::res://scripts/pathGeneratorConfig.gd
+::res://scenes/::1703313990
+main.tscn::PackedScene::2993733135420722490::1703313990::0::1::::<><>::res://scripts/main.gd<>uid://bhkodbj82tjc1<>uid://binw550m2bxuc<>uid://dd63wp2kvv380<>uid://k1iookdmrlqp<>uid://cxoj0vcrev7j7<>uid://bjt0d0y02xxcp<>uid://x8wmkt3ykosa<>uid://beft3brg0fwxa<>uid://dbfnv3hjpmnu<>uid://dx2q4duharest<>uid://bakcm2qe4buxh
+main_menu.tscn::PackedScene::1181274983752752893::1703313862::0::1::::<><>::res://scripts/MainMenuButton.gd<>uid://biwgl2si78pwk
+::res://scripts/::1703313862
+main.gd::GDScript::-1::1703313594::0::1::::<>Node3D<>::
 MainMenuButton.gd::GDScript::-1::1703055522::0::1::::<>VBoxContainer<>::
-PathGenerator.gd::GDScript::-1::1703310974::0::1::::PathGenerator<>Node<>::
-pathGeneratorConfig.gd::GDScript::-1::1703310999::0::1::::PathGeneratorConfig<>Resource<>::
+PathGenerator.gd::GDScript::-1::1703313862::0::1::::PathGenerator<>Node<>::
+pathGeneratorConfig.gd::GDScript::-1::1703313736::0::1::::PathGeneratorConfig<>Resource<>::

@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=3 uid="uid://biwgl2si78pwk"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_khx54"]
+[ext_resource type="PackedScene" uid="uid://c8ahcvqed6ch1" path="res://assets/tile_endRound.glb" id="2_4vhbj"]
 [ext_resource type="PackedScene" uid="uid://bhkodbj82tjc1" path="res://assets/tile.glb" id="2_af2on"]
 [ext_resource type="PackedScene" uid="uid://binw550m2bxuc" path="res://assets/tile_straight.glb" id="2_rdg58"]
-[ext_resource type="PackedScene" uid="uid://dd63wp2kvv380" path="res://assets/tile_endSpawn.glb" id="3_3rnyc"]
-[ext_resource type="PackedScene" uid="uid://k1iookdmrlqp" path="res://assets/tile_end.glb" id="3_dsgqo"]
-[ext_resource type="PackedScene" uid="uid://cxoj0vcrev7j7" path="res://assets/tile_cornerSquare.glb" id="3_nda54"]
+[ext_resource type="PackedScene" uid="uid://dkdg0jbkmvvyx" path="res://assets/tile_endRoundSpawn.glb" id="3_xiyo8"]
 [ext_resource type="PackedScene" uid="uid://bjt0d0y02xxcp" path="res://assets/tile_crossing.glb" id="5_jh2gq"]
+[ext_resource type="PackedScene" uid="uid://co5exo2w3uloc" path="res://assets/tile_cornerRound.glb" id="5_rd0i6"]
 [ext_resource type="PackedScene" uid="uid://x8wmkt3ykosa" path="res://assets/enemy_ufoGreen.glb" id="6_8b4ot"]
 [ext_resource type="PackedScene" uid="uid://beft3brg0fwxa" path="res://assets/tile_tree.glb" id="6_54vwh"]
 [ext_resource type="PackedScene" uid="uid://dbfnv3hjpmnu" path="res://assets/tile_treeDouble.glb" id="7_thmnd"]
@@ -27,10 +27,10 @@ glow_strength = 1.5
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_khx54")
-tileStart = ExtResource("3_3rnyc")
-tileEnd = ExtResource("3_dsgqo")
+tileStart = ExtResource("2_4vhbj")
+tileEnd = ExtResource("3_xiyo8")
 tileStraight = ExtResource("2_rdg58")
-tileCorner = ExtResource("3_nda54")
+tileCorner = ExtResource("5_rd0i6")
 tileCrossroads = ExtResource("5_jh2gq")
 tileEnemy = ExtResource("6_8b4ot")
 tileEmpty = Array[PackedScene]([ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("6_54vwh"), ExtResource("9_7wb07"), ExtResource("7_thmnd"), ExtResource("10_5lw0b"), ExtResource("2_af2on"), ExtResource("2_af2on")])
@@ -40,7 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 0.422618, 0.906308, 0, -0.906308, 0.422618, 
 fov = 60.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.846119, 0.532994, 0, -0.532994, 0.846119, 0, 3.81408, 7.10261)
+transform = Transform3D(1, 0, 0, 0, 0.846119, 0.532994, 0, -0.532994, 0.846119, 8, 8, 10)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gxbuh")

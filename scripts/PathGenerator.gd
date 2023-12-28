@@ -66,7 +66,7 @@ func getPathTile(index:int) -> Vector2i:
 func _addLoops():
 	var loopsGenerated:bool = true
 	
-	while loopsGenerated:
+	while loopsGenerated && _loopCount < pathConfig.maxLoops:
 		loopsGenerated = false
 		for i in range(_pathRoute.size()):
 			var loop:Array[Vector2i] = _isLoopOption(i)
@@ -80,8 +80,7 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 	var y:int = _pathRoute[index].y
 	var returnPath:Array[Vector2i]
 	
-	#Yellow
-	if (x < pathConfig.mapLength - 1 and y > 1
+	if (x < pathConfig.mapLength-1 and y > 1
 		and _tileLocFree(x, y-3) and _tileLocFree(x+1, y-3) and _tileLocFree(x+2, y-3)		
 		and _tileLocFree(x-1, y-2) and _tileLocFree(x, y-2) and _tileLocFree(x+1, y-2) and _tileLocFree(x+2, y-2) and _tileLocFree(x+3, y-2)
 		and _tileLocFree(x-1, y-1) and _tileLocFree(x, y-1) and _tileLocFree(x+1, y-1) and _tileLocFree(x+2, y-1) and _tileLocFree(x+3, y-1)
@@ -94,6 +93,7 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 			
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
+		
 	#Blue
 	elif (x > 2 and y > 1
 			and _tileLocFree(x, y-3) and _tileLocFree(x-1, y-3) and _tileLocFree(x-2, y-3)		
@@ -109,7 +109,7 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
 	#Red
-	elif (x < pathConfig.mapLength - 1 and y < pathConfig.mapHeight - 2
+	elif (x < pathConfig.mapLength-1 and y < pathConfig.mapHeight-2
 			and _tileLocFree(x, y+3) and _tileLocFree(x+1, y+3) and _tileLocFree(x+2, y+3)		
 			and _tileLocFree(x+1, y-1) and _tileLocFree(x+2, y-1)
 			and _tileLocFree(x+1, y) and _tileLocFree(x+2, y) and _tileLocFree(x+3, y)
@@ -123,7 +123,7 @@ func _isLoopOption(index:int) -> Array[Vector2i]:
 		_loopCount += 1
 		returnPath.append(Vector2i(x,y))
 	# Brown
-	elif (x > 2 and y < pathConfig.mapLength-2
+	elif (x > 2 and y < pathConfig.mapHeight-2
 			and _tileLocFree(x, y+3) and _tileLocFree(x-1, y+3) and _tileLocFree(x-2, y+3)
 			and _tileLocFree(x-1, y-1) and _tileLocFree(x-2, y-1)
 			and _tileLocFree(x-1, y) and _tileLocFree(x-2, y) and _tileLocFree(x-3, y)
