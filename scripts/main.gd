@@ -21,8 +21,10 @@ func _ready() -> void:
 	_popAlongGrid()
 
 func _popAlongGrid():
-	var enemy = basicEnemy.instantiate()
-	add_child(enemy)
+	for i in 20:
+		await get_tree().create_timer(2).timeout
+		var enemy = basicEnemy.instantiate()
+		add_child(enemy)
 	
 #	var c3d:Curve3D = Curve3D.new()
 #
