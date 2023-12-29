@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyehadtyntd1e"]
+
+[ext_resource type="PackedScene" uid="uid://dx2q4duharest" path="res://assets/tile_crystal.glb" id="1_wdm5m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3viv6"]
+size = Vector3(1, 0.7, 1)
+
+[node name="tile_crystal" type="Area3D" groups=["grid_crystal"]]
+
+[node name="tile_crystal" parent="." instance=ExtResource("1_wdm5m")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+shape = SubResource("BoxShape3D_3viv6")

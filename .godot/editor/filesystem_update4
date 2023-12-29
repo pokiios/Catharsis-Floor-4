@@ -1,10 +1,5 @@
-res://scenes/main.tscn
-res://scenes/main_menu.tscn
-res://resources/basic_path_config.res
-res://scripts/pathGeneratorConfig.gd
-res://scripts/PathGenerator.gd
-res://scripts/main.gd
-res://scripts/basicEnemy.gd
-res://scenes/basic_enemy.tscn
 res://resources/basic_enemy_settings.res
-res://scripts/enemySettings.gd
+res://scenes/tile_crystal.tscn
+res://scenes/tile_corner.tscn
+res://scenes/tile_main.tscn
+res://scenes/main.tscn

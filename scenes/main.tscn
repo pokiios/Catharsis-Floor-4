@@ -1,17 +1,17 @@
 [gd_scene load_steps=16 format=3 uid="uid://biwgl2si78pwk"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_khx54"]
-[ext_resource type="PackedScene" uid="uid://c8ahcvqed6ch1" path="res://assets/tile_endRound.glb" id="2_4vhbj"]
-[ext_resource type="PackedScene" uid="uid://bhkodbj82tjc1" path="res://assets/tile.glb" id="2_af2on"]
-[ext_resource type="PackedScene" uid="uid://binw550m2bxuc" path="res://assets/tile_straight.glb" id="2_rdg58"]
-[ext_resource type="PackedScene" uid="uid://dkdg0jbkmvvyx" path="res://assets/tile_endRoundSpawn.glb" id="3_xiyo8"]
-[ext_resource type="PackedScene" uid="uid://bjt0d0y02xxcp" path="res://assets/tile_crossing.glb" id="5_jh2gq"]
-[ext_resource type="PackedScene" uid="uid://co5exo2w3uloc" path="res://assets/tile_cornerRound.glb" id="5_rd0i6"]
+[ext_resource type="PackedScene" uid="uid://cap23mgw8v6hf" path="res://scenes/tile_spawn.tscn" id="2_8cfbf"]
+[ext_resource type="PackedScene" uid="uid://dguaw7b70df0l" path="res://scenes/tile_end.tscn" id="3_sqkeo"]
+[ext_resource type="PackedScene" uid="uid://biijxystlrawh" path="res://scenes/tile_straight.tscn" id="4_xgr3j"]
+[ext_resource type="PackedScene" uid="uid://86t40nlgdedg" path="res://scenes/tile_corner.tscn" id="5_h0y2u"]
 [ext_resource type="PackedScene" uid="uid://x8wmkt3ykosa" path="res://assets/enemy_ufoGreen.glb" id="6_8b4ot"]
-[ext_resource type="PackedScene" uid="uid://beft3brg0fwxa" path="res://assets/tile_tree.glb" id="6_54vwh"]
-[ext_resource type="PackedScene" uid="uid://dbfnv3hjpmnu" path="res://assets/tile_treeDouble.glb" id="7_thmnd"]
-[ext_resource type="PackedScene" uid="uid://dx2q4duharest" path="res://assets/tile_crystal.glb" id="9_7wb07"]
-[ext_resource type="PackedScene" uid="uid://bakcm2qe4buxh" path="res://assets/tile_rock.glb" id="10_5lw0b"]
+[ext_resource type="PackedScene" uid="uid://cylhbt35j5cfp" path="res://scenes/tile_crossroad.tscn" id="6_lf8m5"]
+[ext_resource type="PackedScene" uid="uid://b6gx7jdhkmbrs" path="res://scenes/tile_empty.tscn" id="8_ooj0j"]
+[ext_resource type="PackedScene" uid="uid://xfasnoy10dm7" path="res://scenes/tile_tree.tscn" id="9_nsje8"]
+[ext_resource type="PackedScene" uid="uid://cyehadtyntd1e" path="res://scenes/tile_crystal.tscn" id="10_vtl3u"]
+[ext_resource type="PackedScene" uid="uid://o8s6cbpxyjsl" path="res://scenes/tile_tree_double.tscn" id="11_10bgq"]
+[ext_resource type="PackedScene" uid="uid://x1kyprym1x35" path="res://scenes/tile_rock.tscn" id="12_mw20k"]
 [ext_resource type="PackedScene" uid="uid://dx1p8wbve8jt8" path="res://scenes/basic_enemy.tscn" id="13_8ejjy"]
 
 [sub_resource type="Environment" id="Environment_gxbuh"]
@@ -28,13 +28,13 @@ glow_strength = 1.5
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_khx54")
-tileStart = ExtResource("2_4vhbj")
-tileEnd = ExtResource("3_xiyo8")
-tileStraight = ExtResource("2_rdg58")
-tileCorner = ExtResource("5_rd0i6")
-tileCrossroads = ExtResource("5_jh2gq")
+tileStart = ExtResource("2_8cfbf")
+tileEnd = ExtResource("3_sqkeo")
+tileStraight = ExtResource("4_xgr3j")
+tileCorner = ExtResource("5_h0y2u")
+tileCrossroads = ExtResource("6_lf8m5")
 tileEnemy = ExtResource("6_8b4ot")
-tileEmpty = Array[PackedScene]([ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("2_af2on"), ExtResource("6_54vwh"), ExtResource("9_7wb07"), ExtResource("7_thmnd"), ExtResource("10_5lw0b"), ExtResource("2_af2on"), ExtResource("2_af2on")])
+tileEmpty = Array[PackedScene]([ExtResource("8_ooj0j"), ExtResource("8_ooj0j"), ExtResource("8_ooj0j"), ExtResource("9_nsje8"), ExtResource("10_vtl3u"), ExtResource("11_10bgq"), ExtResource("12_mw20k"), ExtResource("8_ooj0j"), ExtResource("8_ooj0j")])
 basicEnemy = ExtResource("13_8ejjy")
 
 [node name="Camera3D" type="Camera3D" parent="."]
