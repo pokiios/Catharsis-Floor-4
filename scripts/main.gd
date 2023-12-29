@@ -11,40 +11,31 @@ extends Node3D
 
 @export var basicEnemy:PackedScene
 
-#var PathGenInstance:PathGenerator
+@onready var cam = $Camera3D
+var RAYCAST_LENGTH:float = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_completeGrid()
 	
-	await get_tree().create_timer(2).timeout
-	_popAlongGrid()
-
-func _popAlongGrid():
-	for i in 20:
+	for i in range(10):
 		await get_tree().create_timer(2).timeout
+		print("Creating enemy")
 		var enemy = basicEnemy.instantiate()
 		add_child(enemy)
-	
-#	var c3d:Curve3D = Curve3D.new()
-#
-#	for element in PathGenInstance.getPathRoute():
-#		c3d.add_point(Vector3(element.x, 0.4, element.y))
-#
-#	var p3d:Path3D = Path3D.new()
-#	add_child(p3d)
-#	p3d.curve = c3d
-#
-#	var pf3d:PathFollow3D = PathFollow3D.new()
-#	p3d.add_child(pf3d)
-#	pf3d.add_child(enemy)
-#
-#	var currDistance:float = 0.0
-#
-#	while currDistance < c3d.point_count-1:
-#		currDistance += 0.02
-#		pf3d.progress = clamp(currDistance, 0, c3d.point_count-1.00001)
-#		await get_tree().create_timer(0.01).timeout
+
+func _physics_process(delta: float) -> void:
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		var spaceState = get_world_3d().direct_space_state
+		var mousePos:Vector2 = get_viewport().get_mouse_position()
+		var origin:Vector3 = cam.project_ray_origin(mousePos)
+		var end:Vector3 = origin + cam.project_ray_normal(mousePos) * RAYCAST_LENGTH
+		var query = PhysicsRayQueryParameters3D.create(origin, end)
+		query.collide_with_areas = true
+		var rayResult:Dictionary = spaceState.intersect_ray(query)
+		if rayResult.size() > 0:
+			var co3d:CollisionObject3D = rayResult.get("collider")
+			print(co3d.get_groups()) 
 
 func _completeGrid():
 	

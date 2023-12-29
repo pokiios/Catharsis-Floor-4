@@ -3,3 +3,5 @@ res://scenes/tile_crystal.tscn
 res://scenes/tile_corner.tscn
 res://scenes/tile_main.tscn
 res://scenes/main.tscn
+res://resources/basic_path_config.res
+res://scripts/main.gd
