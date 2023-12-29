@@ -4,5 +4,5 @@ Catharsis: Floor 4 is a tower defence game based off of a section in a Dungeons 
 
 ---
 
-**NOTE:** *A lot of my project as of now will be based off of [Wide Arc Sharks](https://www.youtube.com/@widearchshark3981) Godot tutorial for tower defence games, and I plan on expanding once my Godot knowledge has improved.*
+**NOTE:** *A lot of my project as of now will be based off of [Wide Arch Sharks](https://www.youtube.com/@widearchshark3981) Godot tutorial for tower defence games, and I plan on expanding once my Godot knowledge has improved.*
 
